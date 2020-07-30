@@ -29,6 +29,7 @@ docker-dev:
 	docker run --rm -it \
 		--name farolcovid-dev \
 		-p 8501:8501 \
+		-p 5000:5000\
 		-v $(PWD)/.env:/home/ubuntu/.env:ro \
 		-v $(PWD)/src:/home/ubuntu/src:ro \
 		$(IMAGE_TAG)

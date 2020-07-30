@@ -16,3 +16,7 @@ google-auth-httplib2
 google-auth-oauthlib
 oauth2client
 ua-parser
+mechanize
+flask
+bs4
+flask-cors

@@ -15,7 +15,7 @@ import plots
 import utils
 import amplitude
 import session
-
+import os
 from streamlit.server.Server import Server
 
 
@@ -338,7 +338,20 @@ def main(session_state=None):
         session_state.number_cases = user_input["population_params"]["I_confirmed"]
         session_state.number_deaths = user_input["population_params"]["D"]
         session_state.reset = True
-
+    st.write(
+        """
+    <iframe id="map" src="resources/iframe-gen.html?url=http://192.168.0.5:5000/map-iframe?url=https://datawrapper.dwcdn.net/hNwqf/20/" style="height:2400px;width:100%">
+    </iframe>
+    """,
+        unsafe_allow_html=True,
+    )
+    st.write(
+        """
+    <iframe id="mapReader" src="resources/map-reader.html" style="width:100%;">
+    </iframe>
+    """,
+        unsafe_allow_html=True,
+    )
     if data["confirmed_cases"].sum() == 0:
         st.write(
             f"""<div class="base-wrapper">

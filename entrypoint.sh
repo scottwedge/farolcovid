@@ -10,4 +10,6 @@ source venv/bin/activate
 
 # Start server
 cd src/
+echo $(ls)
+python helper-server/main.py &
 /home/ubuntu/venv/bin/streamlit run farolcovid.py

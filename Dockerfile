@@ -89,5 +89,5 @@ RUN set -x \
 USER ${USER_NAME}
 
 EXPOSE ${STREAMLIT_SERVER_PORT}
-
+EXPOSE 5000
 CMD ["./entrypoint.sh"]

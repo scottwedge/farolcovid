@@ -340,7 +340,7 @@ def main(session_state=None):
         session_state.reset = True
     st.write(
         """
-    <iframe id="map" src="resources/iframe-gen.html?url=http://192.168.0.5:5000/map-iframe?url=https://datawrapper.dwcdn.net/hNwqf/20/" style="height:2400px;width:100%">
+    <iframe id="map" src="resources/iframe-gen.html?url=http://192.168.0.5:5000/map-iframe?url=https://datawrapper.dwcdn.net/hNwqf/20/" style="height:calc(95vw + 100px);width:100%;overflow:hidden;max-height:830px" scroll="no">
     </iframe>
     """,
         unsafe_allow_html=True,

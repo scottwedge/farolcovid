@@ -1,4 +1,4 @@
-IMAGE_TAG=impulsogov/simulacovid
+IMAGE_TAG=impulsogov/simulacovid-map
 
 UNAME := $(shell uname)
 ifeq ($(UNAME), Linux)

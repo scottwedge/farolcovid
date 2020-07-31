@@ -8,13 +8,23 @@
             console.log(map_iframe.contentWindow.document);
             console.log(map_iframe.contentWindow.document.getElementsByClassName("dw-chart-body content-below-chart"));
             //map_iframe.contentWindow.document.getElementsByClassName("dw-chart-body content-below-chart")[0].addEventListener("click", window.parent.alert('hello'));
-            document.getElementById("result").innerHTML = map_iframe.contentWindow.document.getElementsByClassName("dw-tooltip")[0].getElementsByTagName("h2")[0].innerHTML;
+            result = map_iframe.contentWindow.document.getElementsByClassName("dw-tooltip")[0].getElementsByTagName("h2")[0].innerHTML;
+            document.getElementById("result").innerHTML = result;
+            console.log(window.parent.document.getElementsByClassName("st-bu st-bv st-ae st-b8 st-ak st-dc st-dd")[0]);
+            window.parent.document.getElementsByClassName("st-bu st-bv st-ae st-b8 st-ak st-dc st-dd")[0].click();
+            options = window.parent.document.getElementsByClassName("st-ai st-bo");
+            for (i = 0; i < options.length; i++) {
+                if (options[i].innerHTML == result) {
+                    options[i].click();
+                }
+            }
+            //[0].getElementsByClassName("st-ai st-bo"));
         }
     </script>
 </head>
 
 <body>
     <button onclick="check();">Clique aqui para confirmar a seleção no mapa</button>
-    <h2>Cidade Selecionada: </h2>
-    <h2 id="result">Nenhuma</h2>
+    <h2 style="display:none;">Cidade Selecionada: </h2>
+    <h2 id="result" style="display:none;">Nenhuma</h2>
 </body>

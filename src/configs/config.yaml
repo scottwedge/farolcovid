@@ -3,7 +3,7 @@ refresh_rate: 999999 # minutes
 br:
     api:
         external: http://datasource.coronacidades.org/
-        local: http://45.55.43.231:7000/
+        local: http://localhost:7000/
         endpoints:
             simulacovid: "br/cities/simulacovid/main"
             rt:
@@ -36,6 +36,8 @@ br:
         url: https://data.brasil.io/dataset/covid19/caso_full.csv.gz
         rename:
             city_ibge_code: 'city_id'
+            city: 'city_name'
+            state: 'state_id'
             date: 'last_updated'
             last_available_deaths: 'deaths'
             last_available_confirmed: 'confirmed_cases'
@@ -88,7 +90,8 @@ br:
                 "deaths": sum,
                 "state_notification_rate": max,
                 "number_beds": sum,
-                "number_ventilators": sum
+                "number_ventilators": sum,
+                "number_icu_beds": sum
             }   
             health_region_agg: {
                 "population": sum,
@@ -97,7 +100,8 @@ br:
                 "deaths": sum,
                 "notification_rate": median,
                 "number_beds": sum,
-                "number_ventilators": sum
+                "number_ventilators": sum,
+                "number_icu_beds": sum
             }  
         rules:
             rt_classification:
@@ -170,7 +174,6 @@ br:
             display: "notification_rate"
         hospital_capacity:
             risk: "dday_classification"
-            #right_display: "number_ventilators"
             right_display: "number_icu_beds"
             left_display: "number_beds"
             display: "dday_beds_best_months"
@@ -225,6 +228,7 @@ br:
             cnes: [
             "country_iso",
             "country_name",
+            "state_num_id",
             "state_id",
             "state_name",
             "health_region_id",
@@ -236,12 +240,11 @@ br:
             "author_number_beds",
             "last_updated_number_ventilators",
             "author_number_ventilators",
-            'number_ventilators',
+            "number_ventilators",
             "number_beds",
+            "number_icu_beds",
             "last_updated_number_icu_beds",
             "author_number_icu_beds",
-            "number_icu_beds"
-            
         ]
 
 impulso:
